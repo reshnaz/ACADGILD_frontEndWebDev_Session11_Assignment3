@@ -1,0 +1,61 @@
+<div class="container">
+  <div class="row">
+    <section class="content">
+      <div class="col-md-8 col-md-offset-2">
+        <h1 style="text-align: center;">Person List</h1>
+        <hr/>
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <div class="table-resposive">
+              <table class="table table-striped">
+                <thead>
+                  <th>SR#</th>
+                  <th>NAME</th>
+                  <th>ID</th>
+                  <th>AGE</th>
+                  <th>DATE OF REGISTRATION</th>
+                </thead>
+                <tbody>
+                  <!-- Loop through input array -->
+                  <tr *ngFor="let personList of personDetail;let i = index">
+                    <td>
+                      <!-- Displaying serial number string interpolation -->
+                      {{i + 1}}
+                    </td>
+                    <td>
+                      <h5>
+                        <!-- Displaying Person Name  and age from array using string interpolation -->
+                        <!-- Here we use a custom pipe called capitalizeFirst with first and last name.
+                              It capitalizes the first letter of the name passed. -->
+                        {{personList?.honorific}}{{personList?.firstName | capitalizeFirst}} {{personList?.lastName | capitalizeFirst}}
+                      </h5>
+                    </td>
+                    <td>
+                      <h5>
+                        <!-- Displaying Person Name  and age from array using string interpolation -->
+                        {{personList?.personId}}
+                      </h5>
+                    </td>
+                    <td>
+                      <h5>
+                        <!-- Displaying Person Name  and age from array using string interpolation -->
+                        {{personList.age}}
+                      </h5>
+                    </td>
+                    <td>
+                      <h5>
+                        <!-- Displaying Person Name  and age from array using string interpolation -->
+                        <!-- We have used the date pipe to format this date as required, i.e. '9/3/2010' format -->
+                        {{personList?.dor | date:'d/M/y'}}
+                      </h5>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
